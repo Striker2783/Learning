@@ -44,7 +44,6 @@ ball_surface = pygame.Surface([ball_size_x, ball_size_y])
 ball_surface.fill(WHITE)
 ball_rect = ball_surface.get_rect(center=(SCREEN_X / 2, SCREEN_Y / 2))
 ball_velocity = [ball_speed, randint(-ball_speed, ball_speed)]
-clock = pygame.time.Clock()
 
 score_text = pygame.font.Font("Fonts/Arial.ttf", 50)
 
@@ -67,6 +66,8 @@ def addBallSpeed():
     ball_speed += 1
     enemy_paddle_speed = int(ball_speed * .9)
     player_paddle_speed = int(ball_speed * .9)
+
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
