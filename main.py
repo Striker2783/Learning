@@ -7,7 +7,7 @@ pygame.init()
 screen = pygame.display.set_mode((900, 600))
 clock = pygame.time.Clock()
 pygame.display.update()
-
+# Test
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
