@@ -11,19 +11,19 @@ WHITE = (255, 255, 255)
 SCREEN_X = 900
 SCREEN_Y = 600
 
-PLAYER_PADDLE_POS_X = 10
-PLAYER_PADDLE_SIZE_X = 10
-player_paddle_size_y = 50
-player_paddle_speed = 10
-
-ENEMY_PADDLE_POS_X = SCREEN_X - 10
-ENEMY_PADDLE_SIZE_X = 10
-enemy_paddle_size_y = 50
-enemy_paddle_speed = 10
-
 ball_speed = 10
 ball_size_x = 10
 ball_size_y = 10
+
+PLAYER_PADDLE_POS_X = 10
+PLAYER_PADDLE_SIZE_X = 10
+player_paddle_size_y = 100
+player_paddle_speed = int(ball_speed * .9)
+
+ENEMY_PADDLE_POS_X = SCREEN_X - 10
+ENEMY_PADDLE_SIZE_X = 10
+enemy_paddle_size_y = 100
+enemy_paddle_speed = int(ball_speed * .9)
 
 pygame.init()
 
@@ -47,7 +47,6 @@ ball_velocity = [ball_speed, randint(-ball_speed, ball_speed)]
 clock = pygame.time.Clock()
 
 score_text = pygame.font.Font("Fonts/Arial.ttf", 50)
-score_text = pygame.font.Font("Fonts/Arial.ttf", 50)
 
 player_score = 0
 enemy_score = 0
@@ -63,6 +62,11 @@ def resetGame():
     Scored = time.time()
 
 
+def addBallSpeed():
+    global ball_speed, enemy_paddle_speed, player_paddle_speed
+    ball_speed += 1
+    enemy_paddle_speed = int(ball_speed * .9)
+    player_paddle_speed = int(ball_speed * .9)
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -98,6 +102,7 @@ while True:
         resetGame()
     elif ball_rect.left <= 0:
         enemy_score += 1
+        addBallSpeed()
         resetGame()
     
     ball_rect.centerx += ball_velocity[0]
