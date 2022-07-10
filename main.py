@@ -31,6 +31,8 @@ screen = pygame.display.set_mode((900, 600))
 clock = pygame.time.Clock()
 pygame.display.update()
 pygame.display.set_caption("Pong")
+icon = pygame.image.load("Graphics/Pong Icon.png")
+pygame.display.set_icon(icon)
 
 player_paddle_surface = pygame.Surface([PLAYER_PADDLE_SIZE_X, player_paddle_size_y])
 player_paddle_surface.fill(WHITE)
@@ -59,7 +61,7 @@ def resetGame():
     enemy_paddle_rect.center = (ENEMY_PADDLE_POS_X, SCREEN_Y / 2)
     ball_rect.center = (SCREEN_X / 2, SCREEN_Y / 2)
     Scored = time.time()
-
+    
 
 def addBallSpeed():
     global ball_speed, enemy_paddle_speed, player_paddle_speed
