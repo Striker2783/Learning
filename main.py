@@ -1,11 +1,18 @@
 import math
+import pygame
+from sys import exit
 
-'''for i in range(1, 100):
-    print(i)
-'''
+pygame.init()
 
-def pythag(a, b):
-    c = math.sqrt(a ** 2 + b ** 2)
-    return c
-
-pythag(5, 3)
+screen = pygame.display.set_mode((900, 600))
+clock = pygame.time.Clock()
+pygame.display.update()
+# Test
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                pygame.quit()
+    
