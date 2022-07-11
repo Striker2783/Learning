@@ -1,9 +1,10 @@
 # non OOP Version
 
-from random import randint
 import time
-import pygame
+from random import randint
 from sys import exit
+
+import pygame
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -61,7 +62,7 @@ def resetGame():
     enemy_paddle_rect.center = (ENEMY_PADDLE_POS_X, SCREEN_Y / 2)
     ball_rect.center = (SCREEN_X / 2, SCREEN_Y / 2)
     Scored = time.time()
-    
+
 
 def addBallSpeed():
     global ball_speed, enemy_paddle_speed, player_paddle_speed
